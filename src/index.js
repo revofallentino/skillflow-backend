@@ -8,7 +8,9 @@ const enrollmentRoutes = require('./routes/enrollmentRoutes');
 
 const app = express();
 
-app.use(cors({ origin: 'http://localhost:5173' }));
+app.use(cors({
+  origin: ['http://localhost:5173', 'https://skillflow-elearning.vercel.app'],
+}));
 app.use(express.json());
 
 app.use('/api/auth', authRoutes);
