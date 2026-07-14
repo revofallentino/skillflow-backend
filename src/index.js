@@ -5,6 +5,8 @@ require('dotenv').config();
 const sequelize = require('./config/database');
 const authRoutes = require('./routes/authRoutes');
 const enrollmentRoutes = require('./routes/enrollmentRoutes');
+const courseRoutes = require('./routes/courseRoutes');
+const moduleRoutes = require('./routes/moduleRoutes');
 
 const app = express();
 
@@ -15,6 +17,8 @@ app.use(express.json());
 
 app.use('/api/auth', authRoutes);
 app.use('/api/enrollments', enrollmentRoutes);
+app.use('/api/courses', courseRoutes);
+app.use('/api/modules', moduleRoutes);
 
 app.get('/api/health', (req, res) => {
   res.json({ status: 'OK', message: 'SkillFlow API running' });

@@ -1,0 +1,7 @@
+// Jalankan SETELAH middleware auth (req.user harus sudah ada)
+module.exports = (req, res, next) => {
+  if (!req.user || req.user.role !== 'admin') {
+    return res.status(403).json({ message: 'Akses ditolak. Khusus admin.' });
+  }
+  next();
+};
